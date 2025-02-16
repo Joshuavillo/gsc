@@ -1,0 +1,267 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Success College Cebu Online Library</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://lh3.googleusercontent.com/d/15wISNkSH7bRxdrGMMN_GsWgcQuniymID');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .header {
+    background-color: rgba(4, 170, 109, 0.9);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+	justify-content: space-between;
+  }
+  .header img {
+    width: 85px;
+    border-radius: 70%;
+    margin-right: 10px;
+  }
+  .container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px gray;
+  }
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .tabs a {
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .tabs a:hover {
+    opacity: 0.8;
+  }
+  .book-list, .borrowed-books, .expired-sessions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .book, .return, .expired {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px gray;
+    width: 200px;
+    text-align: center;
+  }
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  .search-bar {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+  }
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  .content-section {
+    display: none;
+  }
+  .content-section.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+</form>
+<div class="header">
+ <div class="header">
+  <img src="https://lh3.googleusercontent.com/d/1ND0gbYC4SXFcU6dPbZHlrWH4QytKszrY=w200" alt="Avatar">
+  Golden Success College Cebu Online Library</div>
+  <button>Log Out</button>
+</div>
+
+<div class="container">
+  <div class="tabs">
+    <a onclick="showSection('availableBooks')">Available Books</a>
+    <a onclick="showSection('borrowedBooks')">Borrowed Books</a>
+  </div>
+
+  <div id="availableBooks" class="content-section active">
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search for a book...">
+    </div>
+    <h2>Available Books</h2>-
+    <div class="book-list" id="bookList">
+       <div class="book">
+        <h3>Harry Potter and the Philosopher's Stone</h3>
+        <p>Author: J.K Rowling</p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+      <div class="book">
+        <h3>Percy Jackson & the Olympians:  The Lightning Thief</h3>
+        <p>Author: Rick Riordan </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+	        <div class="book">
+        <h3>Reapers: Thirteen brothers</h3>
+        <p>Author: Shim Simplina </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+      <div class="book">
+        <h3>Remarried Empress</h3>
+        <p>Author: Alpha Tart </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+	  	        <div class="book">
+        <h3>Since 1894: Captain Jeon</h3>
+        <p>Author: Aniya Kushwaha </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+	  	        <div class="book">
+        <h3>Tokyo Ghoul - Volume 1</h3>
+        <p>Author: Sui Ishida </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+      <div class="book">
+        <h3>One Piece, Vol. 1: Romance Dawn</h3>
+        <p>Author: Eiichiro Oda </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+	  	        <div class="book">
+        <h3>Toilet-bound Hanako-kun, Vol. 1</h3>
+        <p>Author: Aidalro </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+      <div class="book">
+        <h3>Black Clover</h3>
+        <p>Author: Yūki Tabata </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+	  <div class="book">
+        <h3>My Love Story with Yamada-kun at Lv999 Volume 1</h3>
+        <p>Author: Mashiro </p>
+        <button onclick="borrowBook(this)">Borrow</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="borrowedBooks" class="content-section">
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search borrowed books...">
+    </div>
+    <h2>Borrowed Books</h2>
+    <div class="borrowed-books" id="borrowedList"></div>
+	
+    <div id="expiredSessions">
+      <h2>Expired Sessions</h2>
+      <div class="expired-sessions" id="expiredList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showSection(sectionId) {
+    document.querySelectorAll('.content-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+  }
+
+  function borrowBook(button) {
+    let book = button.parentElement;
+     button.remove();
+
+    let borrowerName = prompt("Enter borrower's name:");
+     if (!borrowerName) return; 
+
+    let gradeLevel = prompt("Enter grade level:");
+     if (!gradeLevel) return; 
+	 
+	 let dueDate = prompt("Enter expected return:");
+	 if(!dueDate) return;
+	 
+      let borrowerInfo = document.createElement('p');
+       borrowerInfo.textContent = `Borrower: ${borrowerName}, Grade: ${gradeLevel}, Due: ${dueDate}`;
+        book.appendChild(borrowerInfo);
+         let returnButton = document.createElement('button');
+          returnButton.textContent = 'Return';
+           returnButton.onclick = function () { returnBook(returnButton); };
+            book.appendChild(returnButton);
+             document.getElementById('borrowedList').appendChild(book);
+  }
+
+  function returnBook(button) {
+    let book = button.parentElement;
+     button.remove();
+      document.getElementById('expiredList').appendChild(book);
+	  
+    let newBook = document.createElement('div');
+    newBook.classList.add('book');
+    let bookTitle = book.querySelector('h3').textContent;
+    let bookAuthor = book.querySelector('p').textContent;
+    let titleElement = document.createElement('h3');
+	
+    titleElement.textContent = bookTitle;
+    let authorElement = document.createElement('p');
+    authorElement.textContent = bookAuthor;
+    let borrowButton = document.createElement('button');
+    borrowButton.textContent = 'Borrow';
+    borrowButton.onclick = function () { borrowBook(borrowButton); };
+    newBook.appendChild(titleElement);
+    newBook.appendChild(authorElement);
+    newBook.appendChild(borrowButton);
+    document.getElementById('bookList').appendChild(newBook);
+  }
+
+  function searchBooks(input, sectionId) {
+    let filter = input.value.toLowerCase();
+    let books = document.querySelectorAll(`#${sectionId} .book`);
+
+    books.forEach(book => {
+      let title = book.querySelector('h3').textContent.toLowerCase();
+      let author = book.querySelector('p').textContent.toLowerCase();
+      if (title.includes(filter) || author.includes(filter)) {
+        book.style.display = "block"; 
+      } else {
+        book.style.display = "none"; 
+      }
+    });
+  }
+
+  document.querySelectorAll('.search-bar').forEach(input => {
+    input.addEventListener('input', function () {
+      let sectionId = this.closest('.content-section').id;
+      searchBooks(this, sectionId);
+    });
+  });
+  
+}
+</script>
+</body>
+</html>
+
